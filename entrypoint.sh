@@ -2,7 +2,7 @@
 
 set -e
 
-PACKAGE_TO_BUILD="SPECS/$1"
+PACKAGE_TO_BUILD="$1"
 
 pwd
 
@@ -20,11 +20,11 @@ fi
 # Make sure the spec file exists.
 if [ ! -f $PACKAGE_TO_BUILD ]; then
   echo "Spec file not found: $PACKAGE_TO_BUILD"
-  ls -la
-  cd /root/rpmbuild
-  ls -la 
   exit 1
 fi
+
+echo "Setting up RPM build tree"
+rpmdev-setuptree
 
 # Convert the spec file to Unix format.
 dos2unix $PACKAGE_TO_BUILD

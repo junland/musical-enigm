@@ -14,8 +14,4 @@ RUN dos2unix /usr/local/entrypoint.sh && chmod +x /usr/local/entrypoint.sh
 
 WORKDIR /root
 
-RUN rpmdev-setuptree
-
-WORKDIR /root/rpmbuild
-
 ENTRYPOINT ["/usr/local/entrypoint.sh"]
