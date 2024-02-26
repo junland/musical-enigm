@@ -1,0 +1,24 @@
+# name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Build Docker image
+        run: docker build -t localhost/libvirt-rpm .
+
+      - name: Run Docker image
+        run: docker run --name libvirt-rpm -v .:/root/rpmbuild localhost/libvirt-rpm libvirt
+ 
