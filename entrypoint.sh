@@ -6,6 +6,8 @@ PACKAGE_TO_BUILD="$1"
 
 pwd
 
+ls -la /root
+
 # Make sure the package to build is provided.
 if [ -z "$PACKAGE_TO_BUILD" ]; then
   echo "No package to build"
