@@ -20,5 +20,5 @@ jobs:
         run: docker build -t localhost/libvirt-rpm .
 
       - name: Run Docker image
-        run: docker run --name libvirt-rpm -v .:/root/rpmbuild localhost/libvirt-rpm libvirt
+        run: docker run --name libvirt-rpm -v .:/root localhost/libvirt-rpm libvirt
  
